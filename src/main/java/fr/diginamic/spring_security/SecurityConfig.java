@@ -14,8 +14,8 @@ public class SecurityConfig {
         return http
                 .httpBasic(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/hello/public").permitAll()
-                        .requestMatchers("/hello/private").authenticated())
+                        .requestMatchers("/hello").permitAll()
+                        .requestMatchers("/hello-private").authenticated())
                 .build();
     }
 }
