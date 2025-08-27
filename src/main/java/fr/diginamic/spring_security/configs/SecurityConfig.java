@@ -26,6 +26,7 @@ public class SecurityConfig {
 //                        .sameOrigin()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/hello").permitAll()
+                        .requestMatchers("/register").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
