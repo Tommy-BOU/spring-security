@@ -10,4 +10,9 @@ public class PageController {
     public String createUserPage(){
         return "register";
     }
+
+    @GetMapping("/add-article")
+    public String addArticle(){
+        return "add-article";
+    }
 }
