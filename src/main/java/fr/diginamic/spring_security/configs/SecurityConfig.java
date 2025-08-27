@@ -27,6 +27,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/hello").permitAll()
                         .requestMatchers("/register").permitAll()
+                        .requestMatchers("/user-app/register").permitAll()
+                        .requestMatchers("/login").permitAll()
                         .requestMatchers("/add-article").authenticated()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
@@ -38,31 +40,5 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/hello")
                         .permitAll())
                 .build();
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-
-        UserDetails user = User.withUsername("tbbk")
-                .password("test")
-                .roles("ADMIN")
-                .build();
-
-        UserDetails user1 = User.withUsername("user1")
-                .password("user1")
-                .roles("USER")
-                .build();
-
-        UserDetails admin = User.withUsername("admin")
-                .password("admin")
-                .roles("ADMIN")
-                .build();
-
-        return new InMemoryUserDetailsManager(user, user1, admin);
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
     }
 }

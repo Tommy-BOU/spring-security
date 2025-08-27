@@ -3,7 +3,6 @@ package fr.diginamic.spring_security.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Data
@@ -14,11 +13,11 @@ public class UserApp {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(unique = true)
-    private String email;
+    private String username;
     private String password;
 
-    public UserApp(String email, String password) {
-        this.email = email;
+    public UserApp(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
@@ -30,12 +29,12 @@ public class UserApp {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

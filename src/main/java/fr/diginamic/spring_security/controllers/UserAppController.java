@@ -22,7 +22,7 @@ public class UserAppController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute UserApp userApp) throws Exception {
-        myUserDetailsService.createUser(userApp.getEmail(), userApp.getPassword());
+        myUserDetailsService.createUser(userApp.getUsername(), userApp.getPassword());
         return "User registered successfully";
     }
 }
